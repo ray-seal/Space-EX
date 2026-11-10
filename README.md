@@ -1,40 +1,24 @@
 # SPACE-EX
 
-An interactive universe explorer and sky guide, with a Solar System explorer, deep-space objects, missions, quizzes, live sky chart, satellite pass predictions and an astronomy calendar.
+Interactive universe explorer with a Solar System, deep-space objects, missions, quizzes, sky chart, satellite passes, sky calendar, camera-backed AR sky finder, spacecraft tracker, linked cosmic rabbit hole and Conner's explorer journal.
 
-## Try it on the web
-
+## Web and PWA
 https://space-ex-ebon.vercel.app
 
-## Android app (APK)
+Install from a supported browser using **Install app** or **Add to Home Screen**. The service worker caches the application shell and feature bundle for offline access. Fresh orbital data and live sky calculations still need connectivity.
 
-SPACE-EX can also be built as an Android app using Capacitor.
+## Android APK
+SPACE-EX also builds as a separate Android application using Capacitor, not an Edge-installed PWA. Every push to main and manual workflow runs build a debug APK. Open GitHub Actions, select **Build SPACE-EX Android APK**, open the latest successful run, download **SPACE-EX-Android-APK**, extract it and install app-debug.apk.
 
-Every push to `main`, and every manual run of the Android workflow, builds a debug APK. To download it:
+The APK includes native geolocation and camera-preview plugins. Android asks for permission when the relevant feature is used. It appears as its own installed app, though Android parental controls can still apply app-specific limits. Debug-signed testing build, not a Play Store release.
 
-1. Open the repository's **Actions** tab.
-2. Select **Build SPACE-EX Android APK**.
-3. Open the latest successful run.
-4. Download the **SPACE-EX-Android-APK** artifact.
-5. Extract the ZIP and install `app-debug.apk` on the Android phone.
+## Four expeditions
+- AR Sky Finder: camera overlay with celestial labels positioned using location, compass and calculated sky coordinates.
+- Spacecraft Tracker: orbital position estimates for ISS, Hubble, Tiangong and a Starlink sample using CelesTrak data.
+- Cosmic Rabbit Hole: linked exploration of galaxies, black holes, stars, exoplanets, dark matter and more.
+- Conner's Explorer Journal: local notes, discoveries, badges and JSON import/export.
 
-Android may ask you to allow installation from the browser or file manager used to open the APK. The app requests location access only when the sky-location feature is used. Location coordinates are processed on-device by the sky chart and are not sent to SPACE-EX servers.
+Location is processed on-device and not sent to SPACE-EX servers. Camera starts only when requested. Journal data is local unless manually exported. Orbital positions are propagated estimates, not live GPS telemetry or visibility guarantees. Phone compass accuracy varies. Offline mode caches the app shell, not live data.
 
-This is a debug-signed APK for direct testing, not a Play Store release.
-
-## Sky guide notes
-
-- Sky positions are calculated on-device using Astronomy Engine.
-- Satellite pass predictions use public CelesTrak orbital data, cached locally for two hours.
-- A predicted satellite pass is geometric and is not a guarantee of naked-eye visibility.
-- Starlink train predictions link to dedicated external trackers.
-- Sky visibility depends on the observer's location, time, horizon, weather and light pollution.
-
-## Technology
-
-- Static HTML, CSS and JavaScript
-- Astronomy Engine
-- satellite.js
-- Capacitor Android wrapper
-- GitHub Actions Android build
-- Vercel web deployment
+## Stack
+Static HTML/CSS/JS, Astronomy Engine, satellite.js, Capacitor, Capacitor Geolocation, Camera Preview, GitHub Actions and Vercel.
