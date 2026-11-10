@@ -1,0 +1,22 @@
+{
+  "name": "SPACE-EX | The universe is yours",
+  "short_name": "SPACE-EX",
+  "description": "Interactive universe explorer, AR sky finder and spacecraft tracker.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080b18",
+  "theme_color": "#080b18",
+  "categories": [
+    "education",
+    "science"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
