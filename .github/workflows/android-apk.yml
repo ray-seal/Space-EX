@@ -51,6 +51,19 @@ jobs:
           p.write_text(s)
           PY
 
+      - name: Add camera permission
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("android/app/src/main/AndroidManifest.xml")
+          s = p.read_text()
+          marker = "    <application"
+          permission = '    <uses-permission android:name="android.permission.CAMERA" />\n'
+          if "android.permission.CAMERA" not in s:
+              s = s.replace(marker, permission + marker, 1)
+          p.write_text(s)
+          PY
+
       - name: Sync Capacitor
         run: npx cap sync android
 
